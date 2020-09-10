@@ -1,0 +1,44 @@
+name: Tests & Check
+on: [push, pull_request]
+env:
+  GO111MODULE: on
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }} with Go ${{ matrix.go_version }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go_version: 1.15
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - name: Set up Go ${{ matrix.go_version }}
+        uses: actions/setup-go@v1
+        with:
+          go-version: ${{ matrix.go_version }}
+        id: go
+
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Staticcheck
+        uses: grandcolline/golang-github-actions@v1.1.0
+        with:
+          run: staticcheck
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Go vet with shadow
+        uses: grandcolline/golang-github-actions@v1.1.0
+        with:
+          run: shadow
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Go Test
+        run: |
+          go test -timeout 5m -race -v -covermode=atomic -coverprofile=coverage.out ./...
+      - name: Send coverage to Coveralls
+        env:
+          COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          GO111MODULE=off go get -u github.com/mattn/goveralls
+          $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=github
