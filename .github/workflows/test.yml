@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: 1.15
+        go_version: [1.15]
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
       - name: Set up Go ${{ matrix.go_version }}
