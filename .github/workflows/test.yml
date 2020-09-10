@@ -5,7 +5,7 @@ env:
 
 jobs:
   test:
-    name: Tests & checks
+    name: With ${{ matrix.go_version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,22 +16,17 @@ jobs:
         with:
           go-version: ${{ matrix.go_version }}
         id: go
-
-      - name: Check out code
-        uses: actions/checkout@v1
-
+      - uses: actions/checkout@master
       - name: Staticcheck
         uses: grandcolline/golang-github-actions@v1.1.0
         with:
           run: staticcheck
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Go vet with shadow
         uses: grandcolline/golang-github-actions@v1.1.0
         with:
           run: shadow
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Go Test
         run: |
           go test -timeout 5m -race -v -covermode=atomic -coverprofile=coverage.out ./...
