@@ -16,17 +16,8 @@ jobs:
         with:
           go-version: ${{ matrix.go_version }}
         id: go
-      - uses: actions/checkout@master
-      - name: Staticcheck
-        uses: grandcolline/golang-github-actions@v1.1.0
-        with:
-          run: staticcheck
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Go vet with shadow
-        uses: grandcolline/golang-github-actions@v1.1.0
-        with:
-          run: shadow
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out code
+        uses: actions/checkout@v1
       - name: Go Test
         run: |
           go test -timeout 5m -race -v -covermode=atomic -coverprofile=coverage.out ./...
@@ -36,3 +27,26 @@ jobs:
         run: |
           GO111MODULE=off go get -u github.com/mattn/goveralls
           $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=github
+
+  staticcheck:
+    name: StaticCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: check
+        uses: grandcolline/golang-github-actions@v1.1.0
+        with:
+          run: staticcheck
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  vet-shadow:
+    name: Go Vet with Shadow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: check
+        uses: grandcolline/golang-github-actions@v1.1.0
+        with:
+          run: shadow
+          token: ${{ secrets.GITHUB_TOKEN }}
+
