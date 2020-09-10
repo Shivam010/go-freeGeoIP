@@ -5,12 +5,11 @@ env:
 
 jobs:
   test:
-    name: Test on ${{ matrix.os }} with Go ${{ matrix.go_version }}
+    name: Tests & checks
     runs-on: ubuntu-latest
     strategy:
       matrix:
         go_version: [1.15]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
       - name: Set up Go ${{ matrix.go_version }}
         uses: actions/setup-go@v1
