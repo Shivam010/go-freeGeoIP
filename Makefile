@@ -15,4 +15,7 @@ build: clean
 test: build
 	GO111MODULE=on go test -timeout 5m -race -covermode=atomic -coverprofile=coverage.out ./...
 
-.PHONY: test build clean lint fmt
+license:
+	addlicense -c "Shivam Rathore" -v .
+
+.PHONY: test build clean lint fmt license
