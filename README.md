@@ -7,6 +7,7 @@ go-freeGeoIP client with inbuilt cache
 [![GoDoc](https://godoc.org/github.com/Shivam010/go-freeGeoIP?status.svg)](https://godoc.org/github.com/Shivam010/go-freeGeoIP)
 [![License](https://img.shields.io/badge/license-apache2-mildgreen.svg)](https://github.com/Shivam010/go-freeGeoIP/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/Shivam010/go-freeGeoIP.svg)](https://github.com/Shivam010/go-freeGeoIP/releases)
+[![Coverage Status](https://coveralls.io/repos/github/Shivam010/go-freeGeoIP/badge.svg)](https://coveralls.io/github/Shivam010/go-freeGeoIP)
 
 _go-freeGeoIP_ is a Golang client for Free IP Geolocation information API with inbuilt cache support to 
 increase the **_15k per hour rate limit_** of the application [https://freegeoip.app/](https://freegeoip.app/)
