@@ -31,7 +31,7 @@ jobs:
           go-version: ${{ matrix.go_version }}
         id: go
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.3.2
       - name: Go Test
         run: |
           go test -timeout 5m -race -v -covermode=atomic -coverprofile=coverage.out ./...
@@ -46,7 +46,7 @@ jobs:
     name: StaticCheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2.3.2
       - name: check
         uses: grandcolline/golang-github-actions@v1.1.0
         with:
@@ -57,7 +57,7 @@ jobs:
     name: Go Vet with Shadow
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2.3.2
       - name: check
         uses: grandcolline/golang-github-actions@v1.1.0
         with:
