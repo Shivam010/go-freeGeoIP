@@ -1,0 +1,37 @@
+version: 2
+updates:
+  
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "10:30"
+      # Use India Standard Time (UTC +05:30)
+      timezone: "Asia/Kolkata"
+    commit-message:
+      prefix: "actions"
+    labels:
+      - "github-actions"
+      - "dependencies"
+    reviewers:
+      - "Shivam010"
+  
+  # Maintain dependencies for Go modules
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "10:30"
+      # Use India Standard Time (UTC +05:30)
+      timezone: "Asia/Kolkata"
+    commit-message:
+      prefix: "gomod"
+    labels:
+      - "gomod"
+      - "dependencies"
+    reviewers:
+      - "Shivam010"
+  
+  
+  
