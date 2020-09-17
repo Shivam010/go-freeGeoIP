@@ -1,8 +1,8 @@
 go-freeGeoIP client with inbuilt cache
 ======================================
 
-[![Build](https://github.com/Shivam010/go-freeGeoIP/workflows/Build/badge.svg)](https://github.com/Shivam010/go-freeGeoIP/actions)
-[![Tests & Check](https://github.com/Shivam010/go-freeGeoIP/workflows/Tests%20&%20Check/badge.svg)](https://github.com/Shivam010/go-freeGeoIP/actions)
+[![Build](https://github.com/Shivam010/go-freeGeoIP/workflows/Build/badge.svg)](https://github.com/Shivam010/go-freeGeoIP/actions?query=workflow%3ABuild)
+[![Tests & Check](https://github.com/Shivam010/go-freeGeoIP/workflows/Tests%20&%20Check/badge.svg)](https://github.com/Shivam010/go-freeGeoIP/actions?query=workflow%3A%22Tests+%26+Check%22)
 [![Go Report Card](https://goreportcard.com/badge/github.com/Shivam010/go-freeGeoIP?dropcache)](https://goreportcard.com/report/github.com/Shivam010/go-freeGeoIP)
 [![GoDoc](https://godoc.org/github.com/Shivam010/go-freeGeoIP?status.svg)](https://godoc.org/github.com/Shivam010/go-freeGeoIP)
 [![License](https://img.shields.io/badge/license-apache2-mildgreen.svg)](https://github.com/Shivam010/go-freeGeoIP/blob/master/LICENSE)
@@ -123,11 +123,11 @@ Request for Contribution
 Contributors are more than welcome and much appreciated. Please feel free to open a PR to improve anything you 
 don't like, or would like to add.
 
-Please make your changes in a specific branch and request to pull into master! If you can please make sure all 
+Please make your changes in a specific branch and create a pull request into master! If you can, please make sure all 
 the changes work properly and does not affect the existing functioning.
 
 No PR is too small! Even the smallest effort is countable.
 
 License
 -------
-This project is licensed under the [MIT license.](https://github.com/Shivam010/go-freeGeoIP/blob/master/LICENSE)
+This project is licensed under the [Apache License 2.0](https://github.com/Shivam010/go-freeGeoIP/blob/master/LICENSE)
